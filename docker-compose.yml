@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  websocket-vpn-server:
+    build: .
+    container_name: websocket-vpn-server
+    ports:
+      - "8080:8080"  # WebSocket server
+      - "1080:1080"  # SOCKS5 proxy
+      - "3001:3001"  # Metrics dashboard
+    volumes:
+      - ./config:/app/config
+      - ./logs:/app/logs
+      - ./certs:/app/certs
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    networks:
+      - vpn-network
+
+  websocket-vpn-client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: websocket-vpn-client
+    ports:
+      - "3000:3000"  # Web client
+    depends_on:
+      - websocket-vpn-server
+    environment:
+      - REACT_APP_SERVER_URL=ws://websocket-vpn-server:8080
+    restart: unless-stopped
+    networks:
+      - vpn-network
+
+networks:
+  vpn-network:
+    driver: bridge
+
+volumes:
+  vpn-logs:
+  vpn-certs:

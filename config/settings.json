@@ -1,0 +1,69 @@
+{
+  "app": {
+    "name": "WebSocket VPN",
+    "version": "1.0.0",
+    "description": "A WebSocket-based VPN solution"
+  },
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "ssl": {
+      "enabled": true,
+      "cert": "certs/server.crt",
+      "key": "certs/server.key"
+    },
+    "auth": {
+      "enabled": true,
+      "tokens": ["your-secret-token-here"],
+      "rate_limit": {
+        "requests": 100,
+        "window": 60
+      }
+    },
+    "logging": {
+      "level": "INFO",
+      "file": "logs/server.log",
+      "max_size": "10MB",
+      "backup_count": 5
+    }
+  },
+  "client": {
+    "auto_reconnect": true,
+    "reconnect_interval": 5000,
+    "connection_timeout": 10000,
+    "max_retries": 3,
+    "heartbeat_interval": 30000
+  },
+  "tunnel": {
+    "buffer_size": 8192,
+    "compression": true,
+    "encryption": {
+      "enabled": true,
+      "algorithm": "AES-256-GCM"
+    }
+  },
+  "proxy": {
+    "enabled": true,
+    "port": 1080,
+    "socks5": {
+      "enabled": true,
+      "port": 1080
+    },
+    "http": {
+      "enabled": true,
+      "port": 8080
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics": {
+      "traffic": true,
+      "latency": true,
+      "errors": true
+    },
+    "dashboard": {
+      "enabled": true,
+      "port": 3001
+    }
+  }
+}
