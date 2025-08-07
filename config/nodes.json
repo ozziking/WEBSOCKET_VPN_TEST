@@ -1,0 +1,89 @@
+{
+  "nodes": [
+    {
+      "id": "us-east-1",
+      "name": "US East 1 (New York)",
+      "host": "us-east-1.your-vpn.com",
+      "port": 443,
+      "protocol": "wss",
+      "location": "US",
+      "country": "United States",
+      "city": "New York",
+      "priority": 1,
+      "enabled": true,
+      "description": "Primary US East Coast node"
+    },
+    {
+      "id": "us-west-1",
+      "name": "US West 1 (Los Angeles)",
+      "host": "us-west-1.your-vpn.com",
+      "port": 443,
+      "protocol": "wss",
+      "location": "US",
+      "country": "United States",
+      "city": "Los Angeles",
+      "priority": 2,
+      "enabled": true,
+      "description": "Primary US West Coast node"
+    },
+    {
+      "id": "us-central-1",
+      "name": "US Central 1 (Chicago)",
+      "host": "us-central-1.your-vpn.com",
+      "port": 443,
+      "protocol": "wss",
+      "location": "US",
+      "country": "United States",
+      "city": "Chicago",
+      "priority": 3,
+      "enabled": true,
+      "description": "US Central node"
+    },
+    {
+      "id": "us-south-1",
+      "name": "US South 1 (Dallas)",
+      "host": "us-south-1.your-vpn.com",
+      "port": 443,
+      "protocol": "wss",
+      "location": "US",
+      "country": "United States",
+      "city": "Dallas",
+      "priority": 4,
+      "enabled": true,
+      "description": "US South node"
+    },
+    {
+      "id": "us-east-2",
+      "name": "US East 2 (Miami)",
+      "host": "us-east-2.your-vpn.com",
+      "port": 443,
+      "protocol": "wss",
+      "location": "US",
+      "country": "United States",
+      "city": "Miami",
+      "priority": 5,
+      "enabled": true,
+      "description": "US Southeast node"
+    },
+    {
+      "id": "us-west-2",
+      "name": "US West 2 (Seattle)",
+      "host": "us-west-2.your-vpn.com",
+      "port": 443,
+      "protocol": "wss",
+      "location": "US",
+      "country": "United States",
+      "city": "Seattle",
+      "priority": 6,
+      "enabled": true,
+      "description": "US Northwest node"
+    }
+  ],
+  "settings": {
+    "auto_switch": true,
+    "switch_threshold": 1000,
+    "health_check_interval": 30,
+    "connection_timeout": 10,
+    "max_retries": 3
+  }
+}
